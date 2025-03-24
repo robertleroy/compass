@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  let hasDoe = $state(0),
+  let permGranted = $state(false),
       alpha = $state(0),  // around z
       beta = $state(0),   // around x - forward tilt
       gamma = $state(0),  // around y - side rotation
@@ -61,9 +61,9 @@
 
 <svelte:window 
   ondeviceorientation={(e) => {
-    acc_x = e.acceleration.x;
-    acc_y = e.acceleration.y;
-    acc_z = e.acceleration.z;
+    alpha = e.alpha;
+    beta = e.beta;
+    gamma = e.gamma;
   }}
 />
 
@@ -79,6 +79,29 @@
   <div class="label">gamma:</div>
   <div class="gamma">{gamma}</div>
 </div>
+
+<!-- <div>
+  <button 
+    onclick={() => {
+      if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+        DeviceOrientationEvent.requestPermission()
+          .then(permissionState => {
+            if (permissionState === 'granted') {
+              window.addEventListener('deviceorientation', (e) => {
+                alpha = e.alpha;
+                beta = e.beta;
+                gamma = e.gamma;
+              });
+              permGranted = true;
+            }
+          })
+          .catch(console.error);
+      } else {
+        permGranted = false;
+      }
+    }}
+  >Permisson: {permGranted}</button>
+</div> -->
 
 
 <style>
