@@ -11,12 +11,16 @@
   });
 </script>
 
-<h2 class="" class:unsupported={!hasDoe}>
+<div class="notice" class:unsupported={!hasDoe}>
   DeviceOrientationEvent {hasDoe ? "supported" : "not supported"}
-</h2>
+</div>
 
 <style>
+  .notice {
+    font-size: 1.25rem;
+    /* font-style: italic; */
+  }
   .unsupported {
-    color: red;
+    color: hsl(0 80 40);
   }
 </style>

@@ -9,5 +9,7 @@
 </main>
 
 <style>
-  
+  main {
+    padding: 2rem 4rem;
+  }
 </style>
