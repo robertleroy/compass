@@ -2,9 +2,11 @@ import adapter from '@sveltejs/adapter-static';
 
 const config = {
   kit: {
-    adapter: adapter(),
+    adapter: adapter({
+			fallback: '404.html'
+		}),
     paths: {
-      base: process.env.NODE_ENV === 'production' ? '/compass' : '',
+      base: process.argv.includes('dev') ? '' : '/compass'
     }
   },
 };
