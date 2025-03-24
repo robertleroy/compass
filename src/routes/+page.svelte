@@ -6,8 +6,8 @@
   onMount(() => {
     if (window && window.DeviceOrientationEvent) {
       window.addEventListener('deviceorientation', deviceOrientationHandler, false);
-      // doe = 'Supported!';
-      console.log(window);
+      doe = 'Supported!';
+      // console.log("window", window);
     }
   });
 </script>
