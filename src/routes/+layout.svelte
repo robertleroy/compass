@@ -1,5 +1,7 @@
 <script>
   import "./app.css";
+  let title = $state("App"),
+      { children } = $props();
 </script>
 
 <main>
@@ -7,5 +9,5 @@
 </main>
 
 <style>
-
+  
 </style>
